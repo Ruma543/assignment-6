@@ -1,6 +1,7 @@
-let allCards = [];
-let musicCards = [];
+let dataArray = [];
+/* let musicCards = [];
 let comedyCards = [];
+let currentCategoryId; */
 
 const handleCategory = async () => {
   const res = await fetch(
@@ -20,6 +21,7 @@ const handleCategory = async () => {
   });
 };
 const handleLoadCard = async categoryId => {
+  //  currentCategoryId = categoryId;
   // console.log(categoryId);
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
@@ -41,12 +43,12 @@ const handleLoadCard = async categoryId => {
     `;
     cardContainer.appendChild(emptyCard);
   } else {
-    allCards = [];
-    musicCards = [];
-    comedyCards = [];
+    dataArray = [];
+    // musicCards = [];
+    // comedyCards = [];
     cardContainer.classList = `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full`;
     trimedCard.forEach(card => {
-      console.log(card);
+      // console.log(card);
       const cardItem = document.createElement('div');
       cardItem.classList = `bg-base-100 shadow-xl p-5`;
       cardItem.innerHTML = `
@@ -97,32 +99,43 @@ const handleLoadCard = async categoryId => {
           </div>
         </div>
     `;
-      const number = parseFloat(card.others.views);
-      console.log(number);
+      // const number = parseFloat(card.others.views);
+      // console.log(number);
       cardContainer.appendChild(cardItem);
-      allCards.push(card);
-      if (card.category === 'Music') {
-        musicCards.push(card);
-      }
-      if (card.category === 'Comedy') {
-        comedyCards.push(card);
-      }
+      console.log(card);
+      return card;
     });
-    sortCards(allCards);
-    sortCards(musicCards);
-    sortCards(comedyCards);
+    if (card.category === 'All') {
+      dataArray.push(parseFloat(card.others.views));
+    } else if (card.category_id === '1001') {
+      dataArray.push(parseFloat(card.others.views));
+    } else if (card.category_id === '1003') {
+      dataArray.push(parseFloat(card.others.views));
+    }
+    console.log(dataArray);
   }
 };
-const sortCards = cardsArray => {
+/* console.log(allCards);
+console.log(musicCards);
+console.log(comedyCards); */
+/* const sortCards = cardsArray => {
   cardsArray.sort((a, b) => {
     return parseFloat(b.card.others.views) - parseFloat(a.card.others.views);
   });
-};
+}; */
 
-const handleShortByViews = () => {
+/* const handleShortByViews = () => {
   sortCards(allCards);
   sortCards(musicCards);
   sortCards(comedyCards);
+}; */
+const handleShortByViews = () => {
+  // if()
+  /* trimedCard.sort((a, b) => {
+    return parseFloat(b.others.views) - parseFloat(a.others.views);
+  }); */
+  handleLoadCard(currentCategoryId);
+  console.log('ruma');
 };
 const shortByViews = document.getElementById('short-by-views-button');
 shortByViews.addEventListener('click', handleShortByViews);
