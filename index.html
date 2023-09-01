@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PH Tube</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <header>
+    <!-- navber section -->
+    <nav>
+      <div id="navigatin-menu"
+        class=" w-11/12 mx-auto flex flex-wrap lg:flex-row justify-between items-center py-4 border-b-2 border-gray-400">
+        <div>
+          <img src="image/Logo.png" alt="">
+        </div>
+        <div class="text-center mx-auto">
+          <button id='short-by-views-button' onclick="handleShortByViews()"
+            class="btn bg-slate-300 rounded-lg lg:mr-20">Sort
+            by view</button>
+        </div>
+        <div>
+          <button onclick="handleBlog()" class="btn bg-red-600 rounded-lg text-white">Blog</button>
+        </div>
+      </div>
+    </nav>
+    <!-- tab section -->
+    <div class="tabs flex justify-center py-4" id="tab-container">
+    </div>
+  </header>
+  <main>
+    <!-- card section -->
+    <div id="card-container" class="w-11/12 mx-auto ">
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

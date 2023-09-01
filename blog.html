@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div id="navigatin-menu"
+        class=" w-11/12 mx-auto flex flex-wrap lg:flex-row justify-between items-center py-4 border-b-2 border-gray-400">
+        <div>
+          <img src="image/Logo.png" alt="">
+        </div>
+        <div class="text-center mx-auto">
+          <button id='short-by-views-button' onclick="handleShortByViews()"
+            class="btn bg-slate-300 rounded-lg lg:mr-20">Sort
+            by view</button>
+        </div>
+        <div>
+          <button onclick="handleBlog()" class="btn bg-red-600 rounded-lg text-white">Blog</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="question-answer w-11/12 mx-auto lg:w-3/4 py-7">
+      <div class="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+          <h1>1.Discuss the scope of var, let & const?</h1>
+        </div>
+        <div class="collapse-content">
+          <h2 class="text-xl font-semibold">var:</h2>
+          <p>Var is a function-scoped, not block-scoped.If declare a variable with var inside a function, it is only
+            accessible within that function, and not outside of it.</p>
+          <h2 class="text-xl font-semibold">Let:</h2>
+          <p>let is a block scope.But inside the block element the value of let can be changed & it will be accessible
+            only within that block. </p>
+          <h2 class="text-xl font-semibold">Const:</h2>
+          <p>Const is also a block scope.Therefore, they are only accessible within the block of code where they are
+            defined.</p>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" />
+        <div class="collapse-title text-xl font-medium">
+          <h2>2.Tell us the use case of null & undefined?</h2>
+        </div>
+        <div class="collapse-content">
+          <h2 class="text-xl font-semibold">Null:</h2>
+          <p>"Null" is a value that represents the intentional absence of any value or object.</p>
+          <h2 class="text-xl font-semibold">Use case of Null:</h2>
+          <ul>
+            <li>1.It's often used to indicate that a variable or property deliberately has no value.</li>
+          </ul><br>
+          <h2 class="text-xl font-semibold">Undefined:</h2>
+          <p>A variable that has been declared but hasn't been assigned a value is considered'undefined'.</p>
+          <h2 class="text-xl font-semibold">Use case of Undefined:</h2>
+          <ul>
+            <li>1. Property that doesn't exists on an object will give you Undefined.</li>
+            <li>2. Accessing array elements outside of the index range.</li>
+            <li>2. If return has nothing on the right side will return Undefined.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-200">
+        <input type="radio" name="my-accordion-2" />
+        <div class="collapse-title text-xl font-medium">
+          <h2>3.What do you mean by rest API?</h2>
+        </div>
+        <div class="collapse-content">
+          <p> <span class="text-xl font-semibold">API</span> stands for Application Programming Interface.The common
+            <span class="text-xl font-semibold">API</span> use by most
+            mobile and web application
+            is talk to server which is called <span class="text-xl font-semibold">REST</span>. <span
+              class="text-xl font-semibold">REST</span> stands for Representational State
+            Transfer.It's not a specification but
+            it is a set of rule.It has been the common standard for building web API. An API that
+            follows the <span class="text-xl font-semibold">REST</span> is called RESTfull API.
+            The <span class="text-xl font-semibold">API</span> get all products should be slash Products.
+          </p>
+          <h2 class="text-xl font-semibold">HTTP Methods</h2>
+          <p class="text-xl ">The four most common HTTP
+            methods used in REST are:</p>
+          <ul>
+            <li><span class="text-xl font-semibold">GET:</span> Retrieve data from the server</li>
+            <li><span class="text-xl font-semibold">POST:</span>Create a new resource on the server.</li>
+            <li><span class="text-xl font-semibold">PUT:</span> Update an existing resource on the server.</li>
+            <li><span class="text-xl font-semibold">DELETE:</span> Remove a resource from the server.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
