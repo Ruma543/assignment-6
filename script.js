@@ -40,7 +40,7 @@ const handleLoadCard = async categoryId => {
     const emptyCard = document.createElement('div');
     emptyCard.classList = ` bg-base-100 w-4/5 lg:w-2/5 mx-auto py-7 shadow-xl lg:p-10 grid grid-cols-1 `;
     emptyCard.innerHTML = `
-    <img src="image/icon.png" alt="" class=" lg:h-40 lg:w-40 mx-auto" />
+    <img src="https://i.ibb.co/Z8nBSzZ/Icon.png" alt="" class=" lg:h-40 lg:w-40 mx-auto" />
     <h2 class="text-3xl font-bold  text-center">Oops!! Sorry, There is no content here</h2>
     `;
     cardContainer.appendChild(emptyCard);
@@ -125,7 +125,6 @@ const handleShortByViews = async () => {
   console.log(viewsValues);
 
   let finalArray = viewsValues.sort((a, b) => (b > a ? 1 : b < a ? -1 : 0));
-  // viewsValues.sort((a, b) => (b > a ? 1 : b < a ? -1 : 0));
   console.log(finalArray);
   finalArray.forEach(card => {
     const cardContainer = document.getElementById('card-container');
@@ -137,8 +136,8 @@ const handleShortByViews = async () => {
             card?.thumbnail
           }" alt="" class=" h-full w-full rounded-lg" /></div>
           ${
-            card?.others?.posted_date !== undefined &&
-            card?.others?.posted_date !== ''
+            card.others.posted_date !== undefined &&
+            card.others.posted_date !== ''
               ? `<div class="w-3/5 py-1 absolute bg-black text-white text-center right-2 bottom-2 rounded-sm">${
                   card.others.posted_date >= 3600
                     ? `${Math.floor(
@@ -159,7 +158,7 @@ const handleShortByViews = async () => {
               <div>
                 <div class="avatar">
                   <div class="w-3/4 rounded-full">
-                    <img src="${card?.authors?.profile_picture}" />
+                    <img src="${card?.authors[0].profile_picture}" />
                   </div>
                 </div>
               </div>
@@ -167,13 +166,13 @@ const handleShortByViews = async () => {
             <div class="basis-3/4">
               <h6 class="text-lg font-semibold">${card.title}</h6>
               <div class="flex"><p class="text-sm">${
-                card.authors?.profile_name
+                card.authors[0].profile_name
               } 
               </p>
               <img src=" ${
-                card.authors?.verified ? `image/vary.svg` : ''
+                card.authors[0].verified ? `image/vary.svg` : ''
               }" alt="" /></div>
-              <p class="text-sm">${card?.others?.views}</p>
+              <p class="text-sm">${card.others.views}</p>
               
             </div>
           </div>
