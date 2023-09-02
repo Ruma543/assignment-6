@@ -107,7 +107,6 @@ const handleLoadCard = async categoryId => {
 const handleShortByViews = async () => {
   const cardContainer = document.getElementById('card-container');
   cardContainer.innerHTML = '';
-  console.log(selectedCategoryId);
   const res = await fetch(
     `https://openapi.programming-hero.com/api/videos/category/${selectedCategoryId}`
   );
@@ -118,15 +117,12 @@ const handleShortByViews = async () => {
   dataCard.forEach(item => {
     if (item.others && item.others.views) {
       const viewsValue = parseFloat(item.others.views?.replace('K', ''));
-      // viewsValues.push({ value: viewsValue, card: item });
-      viewsValues.push(viewsValue);
+      viewsValues.push({ value: viewsValue, card: item });
     }
   });
-  console.log(viewsValues);
 
-  let finalArray = viewsValues.sort((a, b) => (b > a ? 1 : b < a ? -1 : 0));
-  console.log(finalArray);
-  finalArray.forEach(card => {
+  finalArray = viewsValues.sort((a, b) => (b > a ? 1 : b < a ? -1 : 0));
+  finalArray.forEach(({ card }) => {
     const cardContainer = document.getElementById('card-container');
     const cardItem = document.createElement('div');
     cardItem.classList = 'bg-base-100 shadow-xl p-5';
